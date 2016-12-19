@@ -1,5 +1,5 @@
-const chai = require('chai');
-const chaiAsPromised = require('chai-as-promised');
+const chai = require('chai')
+const chaiAsPromised = require('chai-as-promised')
 
 exports.config = {
 
@@ -12,13 +12,13 @@ exports.config = {
     // NPM script (see https://docs.npmjs.com/cli/run-script) then the current working
     // directory is where your package.json resides, so `wdio` will be called from there.
     //
-    specs: [
-        './test/integration/**/*.spec.js'
-    ],
+  specs: [
+    './test/integration/**/*.spec.js'
+  ],
     // Patterns to exclude.
-    exclude: [
+  exclude: [
         // 'path/to/excluded/files'
-    ],
+  ],
     //
     // ============
     // Capabilities
@@ -32,9 +32,9 @@ exports.config = {
     // Sauce Labs platform configurator - a great tool to configure your capabilities:
     // https://docs.saucelabs.com/reference/platforms-configurator
     //
-    capabilities: [{
-        browserName: 'chrome'
-    }],
+  capabilities: [{
+    browserName: 'chrome'
+  }],
     //
     // ===================
     // Test Configurations
@@ -42,27 +42,27 @@ exports.config = {
     // Define all options that are relevant for the WebdriverIO instance here
     //
     // Level of logging verbosity: silent | verbose | command | data | result | error
-    logLevel: 'verbose',
+  logLevel: 'verbose',
     //
     // Enables colors for log output.
-    coloredLogs: true,
+  coloredLogs: true,
     //
     // Saves a screenshot to a given path if a command fails.
-    screenshotPath: './test/out/screens/',
+  screenshotPath: './test/out/screens/',
     //
     // Set a base URL in order to shorten url command calls. If your url parameter starts
     // with "/", the base url gets prepended.
-    baseUrl: 'http://localhost:8888',
+  baseUrl: 'http://localhost:8888',
     //
     // Default timeout for all waitForXXX commands.
-    waitforTimeout: 10000,
+  waitforTimeout: 10000,
     //
     // Default timeout in milliseconds for request
     // if Selenium Grid doesn't send response
-    connectionRetryTimeout: 90000,
+  connectionRetryTimeout: 90000,
     //
     // Default request retries count
-    connectionRetryCount: 3,
+  connectionRetryCount: 3,
     //
     // Initialize the browser instance with a WebdriverIO plugin. The object should have the
     // plugin name as key and the desired plugin options as property. Make sure you have
@@ -93,7 +93,7 @@ exports.config = {
     //
     // Make sure you have the wdio adapter package for the specific framework installed
     // before running any tests.
-    framework: 'mocha',
+  framework: 'mocha',
     //
     // Test reporter for stdout.
     // The following are supported: dot (default), spec and xunit
@@ -102,9 +102,9 @@ exports.config = {
     //
     // Options to be passed to Mocha.
     // See the full list at http://mochajs.org/
-    mochaOpts: {
-        ui: 'bdd'
-    },
+  mochaOpts: {
+    ui: 'bdd'
+  },
     //
     // =====
     // Hooks
@@ -120,11 +120,11 @@ exports.config = {
     //
     // Gets executed before test execution begins. At this point you can access to all global
     // variables like `browser`. It is the perfect place to define custom commands.
-    before: function (capabilties, specs) {
-        chai.Should();
-        chai.use(chaiAsPromised);
-        chaiAsPromised.transferPromiseness = browser.transferPromiseness;
-    },
+  before: function (capabilties, specs) {
+    chai.Should()
+    chai.use(chaiAsPromised)
+    chaiAsPromised.transferPromiseness = browser.transferPromiseness
+  }
 
     // Hook that gets executed before the suite starts
     // beforeSuite: function (suite) {

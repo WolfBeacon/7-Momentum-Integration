@@ -1,15 +1,15 @@
-'use strict';
+'use strict'
 
-module.exports = karmaConfig;
+module.exports = karmaConfig
 
-function karmaConfig(configuration) {
+function karmaConfig (configuration) {
   configuration.set({
     autoWatch: true,
     basePath: '',
     browsers: ['Chrome'],
     colors: true,
     preprocessors: {
-      'test/unit/**/*.js': ['webpack'],
+      'test/unit/**/*.js': ['webpack']
     },
     files: [
       'test/unit/**/*.spec.js'
@@ -20,6 +20,6 @@ function karmaConfig(configuration) {
     ],
     reporters: ['progress'],
     port: 8123,
-    singleRun: false,
-  });
+    singleRun: false
+  })
 }

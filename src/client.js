@@ -1,37 +1,36 @@
-'use strict';
+'use strict'
 
 /** For additional feature: WolfBeacon's Hackathon integration */
 
 // Libraries
-const $ = require('jquery');
-const Handlebars = require('handlebars');
+const $ = require('jquery')
+const Handlebars = require('handlebars')
 
 // Helpers
-const load = require('./lib/loader').load;
+const load = require('./lib/loader').load
 const dateUtil = require('./lib/date-util')
-const config = require('./lib/config.json');
+const config = require('./lib/config.json')
 
 /** Main function. */
 $('document').ready(() => {
     // Templates
-    let template = Handlebars.compile($('#hackathon-template').html());
+  let template = Handlebars.compile($('#hackathon-template').html())
 
-    load().then((hacks) => {
-        let $body = $('.hackathon-body');
-        hacks.forEach((hack) => {
-            let $elem = $(template({
-                title: hack.title,
-                date: dateUtil.formatReadableDate(hack.startDate),
-                link: hack.eventLink,
-                desc: hack.location
-            }));
-            let opacity = (config.futureDays - dateUtil.daysBetween(new Date(), hack.startDate)) / config.futureDays;
-            $elem.children('.h-timeline-content').css('opacity', opacity);
-            $body.append($elem);
-        })
-    }).catch(console.error);
-});
-
+  load().then((hacks) => {
+    let $body = $('.hackathon-body')
+    hacks.forEach((hack) => {
+      let $elem = $(template({
+        title: hack.title,
+        date: dateUtil.formatReadableDate(hack.startDate),
+        link: hack.eventLink,
+        desc: hack.location
+      }))
+      let opacity = (config.futureDays - dateUtil.daysBetween(new Date(), hack.startDate)) / config.futureDays
+      $elem.children('.h-timeline-content').css('opacity', opacity)
+      $body.append($elem)
+    })
+  }).catch(console.error)
+})
 
 /**
     {
@@ -41,7 +40,6 @@ $('document').ready(() => {
     "startDate": "2016-09-15",
     "location": "Waterloo, ON, Canada",
 */
-
 
 /**
   Additional information from WolfBeacon (unused at the moment):
