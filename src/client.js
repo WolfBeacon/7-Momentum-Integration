@@ -7,8 +7,9 @@ const $ = require('jquery');
 const Handlebars = require('handlebars');
 
 // Helpers
-const load = require('./loader').load;
-const config = require('./config.json');
+const load = require('./lib/loader').load;
+const dateUtil = require('./lib/date-util')
+const config = require('./lib/config.json');
 
 /** Main function. */
 $('document').ready(() => {
@@ -20,11 +21,11 @@ $('document').ready(() => {
         hacks.forEach((hack) => {
             let $elem = $(template({
                 title: hack.title,
-                date: load.formatReadableDate(hack.startDate),
+                date: dateUtil.formatReadableDate(hack.startDate),
                 link: hack.eventLink,
                 desc: hack.location
             }));
-            let opacity = (config.futureDays - load.daysBetween(new Date(), hack.startDate)) / config.futureDays;
+            let opacity = (config.futureDays - dateUtil.daysBetween(new Date(), hack.startDate)) / config.futureDays;
             $elem.children('.h-timeline-content').css('opacity', opacity);
             $body.append($elem);
         })

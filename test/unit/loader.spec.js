@@ -1,7 +1,7 @@
 const chaiAsPromised = require('chai-as-promised');
 chai.use(chaiAsPromised);
 
-const loader = require('../../src/loader.js');
+const loader = require('../../src/lib/loader.js');
 
 describe('[sample unit]', function() {
   it('should pass getDate with no input', function() {
