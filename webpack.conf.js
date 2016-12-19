@@ -9,6 +9,9 @@ module.exports = {
     filename: './static/client.js'
   },
   module: {
+    preLoaders: [
+            { test: /\.json$/, loader: 'json' }
+    ],
     loaders: [
             { test: /\.css$/, loader: 'style!css' }
     ]

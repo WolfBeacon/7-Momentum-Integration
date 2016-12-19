@@ -1,10 +1,10 @@
 # WolfBeacon Momentum Integration
 
-Integration with Momentum (Chrome extension)
+Integration with [Momentum (Chrome extension)](https://momentumdash.com/)
 
 ## Installation
 
-1. You need Node.js and NPM (LTS versions) which can be found [here](https://nodejs.org).
+1. You need [Node.js and NPM (LTS versions)](https://nodejs.org).
 
 2. From the project root, run `npm i && npm run global-install`
 
@@ -12,13 +12,11 @@ Integration with Momentum (Chrome extension)
 
 (From the project root)
 
-- `npm run build-dev` will open a reload server on port 8888 which can be accessed by `[localhost](http://localhost:8888)`
+- `npm run build-dev` will open a browser sync server on port 8888 which can be accessed by `[localhost](http://localhost:8888)`
 
-- `npm run lint` will run the standard linter.
+- `npm run lint` will run the `standard` linter.
 
-- `npm run test` will run integration and unit tests.
-
-Other tasks can be found in `package.json`. (These include `build`, `unit-test`, `integration-test`, `start-selenium-server`)
+- `npm run test` will run integration and unit tests. **First, you must run `npm run start-selenium-server` before this command.**
 
 ## Testing
 
