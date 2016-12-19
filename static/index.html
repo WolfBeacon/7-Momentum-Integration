@@ -1,17 +1,42 @@
 <html>
-  <head>
-    <title>Front-end Javascript Testing</title>
-  </head>
-  <body>
-    <script src="/client.js"></script>
-    <div>
-      <button class="press-me">Press Me</button>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>New Tab</title>
+    <link rel="stylesheet" href="/css/momentum/color.min.css">
+    <link rel="stylesheet" href="/css/momentum/style.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <div class="subpanel-container">
+        <div id="hackathon-panel" class="subpanel-container">
+            <div class="pop-body settings-detail hackathon">
+                <div class="settings-detail-header">
+                    <h3>Hackathons</h3>
+                    <p class="description">Upcoming Events</p>
+                </div>
+                <div class="hackathon-body">
+                </div>
+            </div>
+        </div>
     </div>
-    <div>
-      <button class="do-not-press-me">Do Not Press Me</button>
-    </div>
-    <div>
-      <span class="output-area"></span>
-    </div>
-  </body>
+    <script defer src="/client.js"></script>
+    <script id="hackathon-template" type="text/x-handlebars-template">
+        <div class="h-timeline-block">
+            <div class="h-timeline-img">
+                <img src="/img/h-icon-picture.svg" alt="Timeline">
+            </div>
+            <div class="h-timeline-content">
+                <h4>{{title}}</h4>
+                <p>{{desc}}</p>
+                <a href="{{link}}" class="h-read-more">Read more</a>
+                <span class="h-date">{{date}}</span>
+            </div>
+        </div>
+    </script>
+</body>
+
 </html>

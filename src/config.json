@@ -1,0 +1,6 @@
+{
+	"baseUrl": "https://wolfbeacon.herokuapp.com",
+	"apiUrl": "/api/v1/hackathon/list",
+	"futureDays": 60,
+	"locale": "en-us"
+}
