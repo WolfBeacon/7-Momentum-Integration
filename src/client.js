@@ -11,35 +11,42 @@ const load = require('./lib/loader').load
 const dateUtil = require('./lib/date-util')
 const config = require('./lib/config.json')
 
-/** Main function. */
-$('document').ready(() => {
-    // Templates
-  let template = Handlebars.compile($('#hackathon-template').html())
+let template;
 
-  load().then((hacks) => {
-    let $body = $('.hackathon-body')
-    hacks.forEach((hack) => {
-      let $elem = $(template({
+/** Function to translate a hackathon to the DOM. */
+function createHack(hack, index = 0) {
+    let $body = $('.hackathon-body');
+    if (index === 0) {
+        $body.empty()
+    }
+    let $elem = $(template({
         title: hack.title,
         date: dateUtil.formatReadableDate(hack.startDate, config.locale),
         link: hack.eventLink,
         desc: hack.location
-      }))
-      let opacity = (config.futureDays - dateUtil.daysBetween(new Date(), hack.startDate)) / config.futureDays
-      $elem.children('.h-timeline-content').css('opacity', opacity)
-      $body.append($elem)
-    })
-  }).catch(console.error)
-})
+    }))
+    let opacity = (config.futureDays - dateUtil.daysBetween(new Date(), hack.startDate)) / config.futureDays
+    $elem.children('.h-timeline-content').css('opacity', opacity)
+    $elem.hide()
+    $body.append($elem)
+    $elem.delay((index + 1) * 250).fadeIn()
+}
 
-/**
-    {
-    "id": 20160916552226390,
-    "title": "Hack the North",
-    "eventLink": "https://hackthenorth.com/",
-    "startDate": "2016-09-15",
-    "location": "Waterloo, ON, Canada",
-*/
+/** Main function. */
+$('document').ready(() => {
+    template = Handlebars.compile($('#hackathon-template').html())
+
+    load().then((hacks) => hacks.forEach(createHack))
+        .catch((err) => {
+            console.error(err)
+            createHack({
+                title: 'Error',
+                startDate: dateUtil.formatReadableDate(dateUtil.getDate(), config.locale),
+                eventLink: config.baseUrl + config.authLink,
+                location: 'Please authorize yourself'
+            })
+        })
+})
 
 /**
   Additional information from WolfBeacon (unused at the moment):

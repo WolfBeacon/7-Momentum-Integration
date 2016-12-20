@@ -14,10 +14,10 @@ let loader = {
     str += '&sort-by=date'
 
     return loader.getCoords().then((crd) => {
-      str += '&latitude=' + crd.latitude
-      str += '&longitude=' + crd.longitude
+      str += '&latitude=' + crd.coords.latitude
+      str += '&longitude=' + crd.coords.longitude
       return str
-    })
+    }).catch(() => str)
   },
     /** Gets browser coordinates. */
     /** MOMENTUM NOTE: Replace with Momentum's location function. */
@@ -26,7 +26,7 @@ let loader = {
   },
     /** Main function. */
   load: function () {
-    return loader.formUrl().then(window.fetch).then(response => response.json())
+    return loader.formUrl().then((url) => window.fetch(url, { mode: 'cors' })).then(response => response.json())
   }
 }
 module.exports = loader

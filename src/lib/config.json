@@ -1,6 +1,7 @@
 {
 	"baseUrl": "https://wolfbeacon.herokuapp.com",
 	"apiUrl": "/api/v1/hackathon/list",
+	"authLink": "/oauth2callback",
 	"futureDays": 60,
 	"locale": "en-us"
 }
