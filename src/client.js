@@ -21,7 +21,7 @@ $('document').ready(() => {
     hacks.forEach((hack) => {
       let $elem = $(template({
         title: hack.title,
-        date: dateUtil.formatReadableDate(hack.startDate),
+        date: dateUtil.formatReadableDate(hack.startDate, config.locale),
         link: hack.eventLink,
         desc: hack.location
       }))

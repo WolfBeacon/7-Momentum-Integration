@@ -2,7 +2,7 @@
 
 /** For additional feature: WolfBeacon's Hackathon integration */
 
-const config = require('json!./config.json')
+const config = require('./config.json')
 const dateUtil = require('./date-util')
 
 module.exports = {

@@ -2,8 +2,6 @@
 
 /** For additional feature: WolfBeacon's Hackathon integration */
 
-const config = require('json!./config.json')
-
 module.exports = {
     /** Gets and formats today's date into yyyy-MM-dd. */
   getDate: function (dateAdd = 0) {
@@ -23,9 +21,9 @@ module.exports = {
     }).join('-')
   },
     /** Formats a yyyy-MM-dd date to month name and day. */
-  formatReadableDate: function (date) {
+  formatReadableDate: function (date, locale) {
     let objDate = new Date(date)
-    return objDate.toLocaleString(config.locale, { month: 'short' }) + ' ' + objDate.getDate()
+    return objDate.toLocaleString(locale, { month: 'short' }) + ' ' + objDate.getDate()
   },
     /** Converts a Date to UTC. */
   asUTC: function (date) {

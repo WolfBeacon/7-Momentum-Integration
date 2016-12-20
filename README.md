@@ -12,7 +12,7 @@ Integration with [Momentum (Chrome extension)](https://momentumdash.com/)
 
 (From the project root)
 
-- `npm run build-dev` will open a browser sync server on port 8888 which can be accessed by `[localhost](http://localhost:8888)`
+- Do `npm run start` and `npm run build-dev` on separate terminals to open a browser sync server on port 8888 which can be accessed by `[localhost](http://localhost:8888)`
 
 - `npm run lint` will run the `standard` linter.
 
