@@ -14,7 +14,6 @@ describe('[sample unit]', function () {
       .to.be.equal('2016-01-01')
   })
 
-
   it('should pass daysBetween with arbitrary input', function () {
     return expect(util.daysBetween(new Date('2016/01/01'), new Date('2016/01/02')))
       .to.be.equal(1)
