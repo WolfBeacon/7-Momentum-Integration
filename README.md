@@ -16,7 +16,7 @@ Integration with [Momentum (Chrome extension)](https://momentumdash.com/)
 
 - `npm run lint` will run the `standard` linter.
 
-- `npm run test` will run integration and unit tests. **First, you must run `npm run start-selenium-server` before this command.**
+- `npm run test` will run integration and unit tests. **First, you must run `npm start` and `npm run start-selenium-server` in separate terminals before this command.**
 
 ## Testing
 
