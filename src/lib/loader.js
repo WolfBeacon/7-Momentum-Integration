@@ -5,7 +5,7 @@
 const config = require('./config.json')
 const dateUtil = require('./date-util')
 
-module.exports = {
+let loader = {
     /** Forms a URL for WolfBeacon's endpoints. */
   formUrl: function () {
     let str = config.baseUrl + config.apiUrl
@@ -13,7 +13,7 @@ module.exports = {
     str += '&end-date=' + dateUtil.getDate(config.futureDays)
     str += '&sort-by=date'
 
-    return this.getCoords().then((crd) => {
+    return loader.getCoords().then((crd) => {
       str += '&latitude=' + crd.latitude
       str += '&longitude=' + crd.longitude
       return str
@@ -26,6 +26,7 @@ module.exports = {
   },
     /** Main function. */
   load: function () {
-    return this.formUrl().then(window.fetch).then(response => response.json())
+    return loader.formUrl().then(window.fetch).then(response => response.json())
   }
 }
+module.exports = loader

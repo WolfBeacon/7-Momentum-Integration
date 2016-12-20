@@ -25,7 +25,7 @@ module.exports = {
     modulesDirectories: ['node_modules', 'src'],
     fallback: path.join(cwd, 'node_modules'),
     alias: {
-      'handlebars': 'handlebars/runtime.js'
+      'handlebars': 'handlebars/dist/cjs/handlebars.js'
     }
   },
   resolveLoader: {
