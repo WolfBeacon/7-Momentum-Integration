@@ -23,7 +23,7 @@ Integration with [Momentum (Chrome extension)](https://momentumdash.com/)
 All tests use the following:
 
 - Framework: Mocha
-- Assertions: Chai Expect, Chai-as-promised
+- Assertions: Chai
 
 White-box testing will use Karma while black-box testing will use Webdriver.io to connect to a Selenium server.
 

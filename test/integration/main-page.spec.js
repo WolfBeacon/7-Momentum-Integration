@@ -9,7 +9,7 @@ describe('[main page]', function () {
       .to.eventually.be.equal('New Tab')
   })
 
-  it('should have an output area which is initially empty', function () {
+  it('should have an body area which is initially empty', function () {
     return expect(browser.getText('.hackathon-body'))
       .to.eventually.be.equal('')
   })

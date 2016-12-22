@@ -1,8 +1,9 @@
 'use strict'
 
-module.exports = karmaConfig
+var webpackConfig = require('./webpack.conf.js')
+webpackConfig.entry = {}
 
-function karmaConfig (configuration) {
+module.exports = function karmaConfig (configuration) {
   configuration.set({
     autoWatch: true,
     basePath: '',
@@ -18,6 +19,11 @@ function karmaConfig (configuration) {
       'mocha',
       'sinon-chai'
     ],
+    webpack: webpackConfig,
+
+    webpackMiddleware: {
+      noInfo: true
+    },
     reporters: ['progress'],
     port: 8123,
     singleRun: false

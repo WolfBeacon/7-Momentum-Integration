@@ -7,11 +7,15 @@ const dateUtil = require('./date-util')
 
 let loader = {
     /** Forms a URL for WolfBeacon's endpoints. */
-  formUrl: function () {
+  formUrl: function (location = false) {
     let str = config.baseUrl + config.apiUrl
     str += '?start-date=' + dateUtil.getDate()
     str += '&end-date=' + dateUtil.getDate(config.futureDays)
     str += '&sort-by=date'
+
+    if (!location) {
+      return Promise.resolve().then(() => str)
+    }
 
     return loader.getCoords().then((crd) => {
       str += '&latitude=' + crd.coords.latitude
@@ -26,7 +30,7 @@ let loader = {
   },
     /** Main function. */
   load: function () {
-    return loader.formUrl().then((url) => window.fetch(url, { mode: 'cors' })).then(response => response.json())
+    return loader.formUrl(true).then((url) => window.fetch(url, { mode: 'cors' })).then(response => response.json())
   }
 }
 module.exports = loader
