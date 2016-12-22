@@ -11,30 +11,36 @@
 </head>
 
 <body>
-    <div class="subpanel-container">
-        <div id="hackathon-panel" class="subpanel-container">
-            <div class="pop-body settings-detail hackathon">
-                <div class="settings-detail-header">
-                    <h3>Hackathons</h3>
-                    <p class="description">Upcoming Events</p>
-                </div>
-                <div class="hackathon-body" id="h-timeline">
-                    <img src="/img/loading-spin.svg" alt="Loading" />
+    <div id="settings-main" class="settings-container">
+        <div class="pane widget-pop settings">
+            <div class="subpanel-container">
+                <div id="hackathon-panel" class="subpanel-container">
+                    <div class="pop-body settings-detail hackathon">
+                        <div class="settings-detail-header">
+                            <h3>Hackathons</h3>
+                            <p class="description">Upcoming Events</p>
+                        </div>
+                        <div class="hackathon-body h-timeline">
+                            <p>Loading...</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
     <script id="hackathon-template" type="text/x-handlebars-template">
         <div class="h-timeline-block">
-            <div class="h-timeline-img">
+            <div class="h-timeline-img h-timeline-img-first">
+                <img src="/img/h-icon-picture-first.svg" alt="Timeline" />
+            </div>
+            <div class="h-timeline-img h-timeline-img-other">
                 <img src="/img/h-icon-picture.svg" alt="Timeline" />
             </div>
             <div class="h-timeline-content">
-                <h4>{{title}}</h4>
-                <p>{{desc}}</p>
-                <a href="{{link}}" class="h-read-more">Read more</a>
-                <span class="h-date">{{date}}</span>
+                <a href="{{link}}" target="_blank"><h3>{{title}}</h3></a>
+                <p class="description">{{desc}}</p>
             </div>
+            <div class="h-date"><p class="h-date-text">{{date}}</p></div>
         </div>
     </script>
     <script defer src="/client.js"></script>

@@ -1,16 +1,50 @@
+.hackathon .h-date {
+  opacity: .45;
+  float: right;
+  margin-right: 30px;
+  text-transform: uppercase;
+}
+
+.h-date-text {
+  margin: 0;
+}
+
+.h-timeline-content h3 {
+  opacity: 0.8;
+  text-transform: uppercase;
+}
+
+.h-timeline-content a:hover h3 {
+  opacity: 1;
+}
+
 .h-timeline {
   position: relative;
   padding: 2em 0;
   margin-top: 2em;
   margin-bottom: 2em;
 }
-.h-timeline::before {
+.h-timeline-img::before {
   /* this is the vertical line */
   content: '';
   position: absolute;
   top: 0;
-  left: 18px;
+  left: 9px;
   height: 100%;
-  width: 4px;
-  background: #d7e4ed;
+  width: 2px;
+  background-color: #666;
+  z-index: -1;
+}
+
+.h-timeline-img {
+  float:left;
+}
+
+.h-timeline-img img {
+  z-index: 10;
+}
+
+.h-timeline-content {
+  margin-left: 30px;
+  display: inline-block;
 }

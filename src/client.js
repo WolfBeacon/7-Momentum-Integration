@@ -11,40 +11,64 @@ const load = require('./lib/loader').load
 const dateUtil = require('./lib/date-util')
 const config = require('./lib/config.json')
 
-let template;
+let template
+let dates = []
 
 /** Function to translate a hackathon to the DOM. */
-function createHack(hack, index = 0) {
-    let $body = $('.hackathon-body');
-    if (index === 0) {
-        $body.empty()
-    }
-    let $elem = $(template({
-        title: hack.title,
-        date: dateUtil.formatReadableDate(hack.startDate, config.locale),
-        link: hack.eventLink,
-        desc: hack.location
-    }))
-    let opacity = (config.futureDays - dateUtil.daysBetween(new Date(), hack.startDate)) / config.futureDays
-    $elem.children('.h-timeline-content').css('opacity', opacity)
-    $elem.hide()
-    $body.append($elem)
-    $elem.delay((index + 1) * 250).fadeIn()
+function createHack (hack) {
+  let $body = $('.hackathon-body')
+  if (dates.length === 0) {
+    $body.empty()
+  }
+  let $elem = $(template({
+    title: hack.title,
+    date: dateUtil.formatReadableDate(hack.startDate, config.locale),
+    link: hack.eventLink,
+    desc: hack.location
+  }))
+  let date = dateUtil.readDelimitedDate(hack.startDate)
+
+  let opacity = (config.futureDays - dateUtil.daysBetween(new Date(), date)) / config.futureDays
+  $elem.children('.h-timeline-content').css('opacity', opacity)
+  $elem.children('.h-date').css('opacity', opacity / 2)
+  $elem.children('.h-timeline-img-' + (dates.length === 0 ? 'other' : 'first')).hide()
+  if (dates.length > 0) {
+    $elem.css('margin-top', (dateUtil.daysBetween(dates[dates.length - 1], date) * 3) + 'px')
+  }
+  $elem.hide()
+  $body.append($elem)
+  $elem.delay((dates.length + 1) * 250).fadeIn()
+
+  dates.push(date)
 }
 
 /** Main function. */
 $('document').ready(() => {
-    template = Handlebars.compile($('#hackathon-template').html())
+  template = Handlebars.compile($('#hackathon-template').html())
 
-    load().then((hacks) => hacks.forEach(createHack))
+  load().then((hacks) => hacks.forEach(createHack))
         .catch((err) => {
-            console.error(err)
-            createHack({
-                title: 'Error',
-                startDate: dateUtil.formatReadableDate(dateUtil.getDate(), config.locale),
-                eventLink: config.baseUrl + config.authLink,
-                location: 'Please authorize yourself'
-            })
+          console.error(err)
+          createHack({
+            title: 'Error',
+            startDate: '2016-12-30',
+            eventLink: config.baseUrl + config.authLink,
+            location: 'Please authorize yourself'
+          })
+
+            /** TODO: NOTE: TESTING */
+          createHack({
+            title: 'Hack the North',
+            startDate: '2017-01-30',
+            eventLink: config.baseUrl + config.authLink,
+            location: 'Waterloo, ON, Canada'
+          })
+          createHack({
+            title: 'Hack the North',
+            startDate: '2017-02-01',
+            eventLink: config.baseUrl + config.authLink,
+            location: 'Waterloo, ON, Canada'
+          })
         })
 })
 

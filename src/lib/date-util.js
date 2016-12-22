@@ -10,6 +10,12 @@ module.exports = {
 
     return this.formatDelimitedDate(today.getFullYear(), today.getMonth() + 1, today.getDate())
   },
+    /** Changes a delimited date to a date object. */
+  readDelimitedDate: function (date) {
+    let data = this.unformatDelimitedDate(date)
+
+    return new Date(data[0], data[1] - 1, data[2])
+  },
     /** Formats a date delimited by dashes. */
   formatDelimitedDate: function () {
     return Array.prototype.slice.call(arguments).map((val) => {
@@ -20,9 +26,13 @@ module.exports = {
       return str
     }).join('-')
   },
+    /** Unformats a date delimited by dashes. */
+  unformatDelimitedDate: function (date) {
+    return date.split('-').map(val => parseInt(val, 10))
+  },
     /** Formats a yyyy-MM-dd date to month name and day. */
   formatReadableDate: function (date, locale) {
-    let objDate = new Date(date)
+    let objDate = this.readDelimitedDate(date)
     return objDate.toLocaleString(locale, { month: 'short' }) + ' ' + objDate.getDate()
   },
     /** Converts a Date to UTC. */
