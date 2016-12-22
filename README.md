@@ -6,15 +6,15 @@ Integration with [Momentum (Chrome extension)](https://momentumdash.com/)
 
 1. You need [Node.js and NPM (LTS versions)](https://nodejs.org).
 
-2. From the project root, run `npm i && npm run global-install`
+2. Clone the repository
+
+3. From the project root, run `npm i && npm run global-install`
 
 ## Tasks
 
 (From the project root)
 
-- Do `npm run start` and `npm run build-dev` on separate terminals to open a browser sync server on port 8888 which can be accessed by `[localhost](http://localhost:8888)`
-
-- `npm run lint` will run the `standard` linter.
+- Do `npm start` and `npm run build-dev` on separate terminals to open a browser sync server on port 8888 which can be accessed by `[localhost](http://localhost:8888)`
 
 - `npm run test` will run integration and unit tests. **First, you must run `npm start` and `npm run start-selenium-server` in separate terminals before this command.**
 
@@ -37,7 +37,9 @@ White-box testing will use Karma while black-box testing will use Webdriver.io t
 
 * Whenever you begin work, be sure to `git pull --rebase upstream master`.
 
-* When you have completed, `git push origin username-work` and issue a PR to `wolfbeacon/4_cms_website`.
+* `npm run lint` will run the `standard` linter. Use this before issuing any PRs or pushing any changes.
+
+* When you have completed, `git push origin username-work` and issue a PR to the repository.
 
 * In case you have a PR pending on this branch, `checkout` to your local `master` branch, `checkout` another `work` branch and work there. Needless to say, `git pull --rebase upstream master` is always important.
 
