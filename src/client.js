@@ -28,7 +28,7 @@ function createHack (hack) {
   }))
   let date = dateUtil.readDelimitedDate(hack.startDate)
 
-  let opacity = (config.futureDays - dateUtil.daysBetween(new Date(), date)) / config.futureDays
+  let opacity = Math.min(1, 0.1 + (config.futureDays - dateUtil.daysBetween(new Date(), date)) / config.futureDays)
   $elem.children('.h-timeline-content').css('opacity', opacity)
   $elem.children('.h-date').css('opacity', opacity / 2)
   $elem.children('.h-timeline-img-' + (dates.length === 0 ? 'other' : 'first')).hide()
@@ -49,25 +49,31 @@ $('document').ready(() => {
   load().then((hacks) => hacks.forEach(createHack))
         .catch((err) => {
           console.error(err)
-          createHack({
+          /*createHack({
             title: 'Error',
-            startDate: '2016-12-30',
+            startDate: dateUtil.getDate(),
             eventLink: config.baseUrl + config.authLink,
             location: 'Please authorize yourself'
-          })
+          })*/
 
             /** TODO: NOTE: TESTING */
           createHack({
-            title: 'Hack the North',
-            startDate: '2017-01-30',
+            title: 'Hack the Valley',
+            startDate: '2017-01-07',
             eventLink: config.baseUrl + config.authLink,
-            location: 'Waterloo, ON, Canada'
+            location: 'Scarborough, ON, Canada'
           })
           createHack({
-            title: 'Hack the North',
-            startDate: '2017-02-01',
+            title: 'UofT Hacks',
+            startDate: '2017-01-20',
             eventLink: config.baseUrl + config.authLink,
-            location: 'Waterloo, ON, Canada'
+            location: 'Toronto, ON, Canada'
+          })
+          createHack({
+            title: 'HackCentral',
+            startDate: '2017-02-17',
+            eventLink: config.baseUrl + config.authLink,
+            location: 'Winnipeg, MB, Canada'
           })
         })
 })
