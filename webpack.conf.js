@@ -14,20 +14,19 @@ module.exports = {
             { test: /\.json$/, loader: 'json' }
     ]
   },
-  colors: true,
   devtool: 'source-map',
   node: {
     fs: 'empty'
   },
   resolve: {
-    modulesDirectories: ['node_modules', 'src'],
-    fallback: path.join(cwd, 'node_modules'),
+    modules: ['node_modules', 'src'],
+    //fallback: path.join(cwd, 'node_modules'),
     alias: {
       'handlebars': 'handlebars/dist/cjs/handlebars.js'
     }
   },
   resolveLoader: {
-    fallback: path.join(cwd, 'node_modules'),
+    //fallback: path.join(cwd, 'node_modules'),
     alias: {
       'hbs': 'handlebars-loader'
     }

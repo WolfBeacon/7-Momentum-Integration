@@ -16,6 +16,11 @@ let dates = []
 
 /** Function to translate a hackathon to the DOM. */
 function createHack (hack) {
+  let date = dateUtil.readDelimitedDate(hack.startDate)
+  if (date < dateUtil.getRealDate() || date > dateUtil.getRealDate(config.futureDays)) {
+    console.log(date)
+    return
+  }
   let $body = $('.hackathon-body')
   if (dates.length === 0) {
     $body.empty()
@@ -26,7 +31,7 @@ function createHack (hack) {
     link: hack.eventLink,
     desc: hack.location
   }))
-  let date = dateUtil.readDelimitedDate(hack.startDate)
+  
 
   let opacity = Math.min(1, 0.1 + (config.futureDays - dateUtil.daysBetween(new Date(), date)) / config.futureDays)
   $elem.children('.h-timeline-content').css('opacity', opacity)
@@ -49,31 +54,11 @@ $('document').ready(() => {
   load().then((hacks) => hacks.forEach(createHack))
         .catch((err) => {
           console.error(err)
-          /*createHack({
+          createHack({
             title: 'Error',
             startDate: dateUtil.getDate(),
             eventLink: config.baseUrl + config.authLink,
             location: 'Please authorize yourself'
-          })*/
-
-            /** TODO: NOTE: TESTING */
-          createHack({
-            title: 'Hack the Valley',
-            startDate: '2017-01-07',
-            eventLink: config.baseUrl + config.authLink,
-            location: 'Scarborough, ON, Canada'
-          })
-          createHack({
-            title: 'UofT Hacks',
-            startDate: '2017-01-20',
-            eventLink: config.baseUrl + config.authLink,
-            location: 'Toronto, ON, Canada'
-          })
-          createHack({
-            title: 'HackCentral',
-            startDate: '2017-02-17',
-            eventLink: config.baseUrl + config.authLink,
-            location: 'Winnipeg, MB, Canada'
           })
         })
 })

@@ -39,7 +39,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/WolfBeacon/7-Momentum-Integration.git"
+    "url": "git+https://github.com/WolfBeacon/wolfbeacon-momentum-integration.git"
   },
   "keywords": [
     "webdriver",
@@ -53,9 +53,9 @@
     "beacon"
   ],
   "author": "WolfBeacon",
-  "license": "CC-BY-NC-SA-4.0",
+  "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/WolfBeacon/7-Momentum-Integration/issues"
+    "url": "https://github.com/WolfBeacon/wolfbeacon-momentum-integration/issues"
   },
-  "homepage": "https://github.com/WolfBeacon/7-Momentum-Integration#readme"
+  "homepage": "https://github.com/WolfBeacon/wolfbeacon-momentum-integration#readme"
 }

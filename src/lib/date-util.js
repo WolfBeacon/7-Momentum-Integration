@@ -5,10 +5,16 @@
 module.exports = {
     /** Gets and formats today's date into yyyy-MM-dd. */
   getDate: function (dateAdd = 0) {
+    let today = this.getRealDate(dateAdd)
+
+    return this.formatDelimitedDate(today.getFullYear(), today.getMonth() + 1, today.getDate())
+  },
+    /** Gets and formats today's date into date format */
+  getRealDate: function (dateAdd = 0) {
     let today = new Date()
     today.setDate(today.getDate() + dateAdd)
 
-    return this.formatDelimitedDate(today.getFullYear(), today.getMonth() + 1, today.getDate())
+    return today
   },
     /** Changes a delimited date to a date object. */
   readDelimitedDate: function (date) {
