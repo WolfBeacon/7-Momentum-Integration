@@ -1,6 +1,6 @@
 {
-	"baseUrl": "http://api.wolfbeacon.com",
-	"apiUrl": "/v1/hackathon/list",
+	"baseUrl": "https://wolfbeacon.com/api",
+	"apiUrl": "/hackalist-hackathons",
 	"authLink": "/oauth2callback",
 	"futureDays": 60,
 	"locale": "en-us"
