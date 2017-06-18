@@ -30,7 +30,7 @@ let loader = {
   },
     /** Main function. */
   load: function () {
-    return loader.formUrl(true).then((url) => window.fetch(url, { mode: 'no-cors' })).then(response => response.json())
+    return loader.formUrl(true).then((url) => window.fetch(url, { mode: 'cors' })).then(response => response.json())
   }
 }
 module.exports = loader

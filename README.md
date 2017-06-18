@@ -8,7 +8,7 @@ Integration with [Momentum (Chrome extension)](https://momentumdash.com/)
 
 2. Clone the repository
 
-3. From the project root, run `npm i && npm run global-install`
+3. From the project root, run `npm install`
 
 ## Tasks
 

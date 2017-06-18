@@ -4,7 +4,7 @@
   "description": "WolfBeacon's Momentum plugin",
   "main": "index.js",
   "scripts": {
-    "global-install": "npm i -g karma selenium-standalone http-server webpack standard webdriverio mocha && selenium-standalone install",
+    "postinstall": "selenium-standalone install",
     "start": "http-server ./static -p 8888 -c-1",
     "build": "webpack --config webpack.conf.js",
     "build-dev": "webpack --config webpack.conf.js --watch",
