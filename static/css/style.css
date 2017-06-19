@@ -10,16 +10,11 @@
 }
 
 .h-timeline-content h3 {
-  opacity: 0.8;
   text-transform: uppercase;
 }
 
-.h-timeline-block:hover > .h-timeline-content, .h-timeline-block:hover > .h-timeline-img  {
+.h-timeline-block:hover  {
   opacity: 1 !important;
-}
-
-.h-timeline-block:hover > .h-date  {
-  opacity: 0.5 !important;
 }
 
 .h-timeline {

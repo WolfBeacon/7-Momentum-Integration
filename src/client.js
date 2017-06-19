@@ -38,6 +38,7 @@ function createHack (hack) {
   if (dates.length > 0) {
     $elem.css('margin-top', (dateUtil.daysBetween(dates[dates.length - 1], date) * 3) + 'px')
   }
+  $elem.css('opacity', 0.8)
   $elem.children().css('opacity', 0)
   $body.append($elem)
   $elem.delay((dates.length + 1) * 250).promise().done(function () {
