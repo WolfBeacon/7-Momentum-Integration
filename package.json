@@ -13,7 +13,7 @@
     "unit-test": "karma start karma.conf.js --single-run --no-auto-watch",
     "unit-test-background": "karma start karma.conf.js",
     "integration-test": "wdio ./wdio.conf.js",
-    "lint": "standard"
+    "lint": "standard --fix"
   },
   "dependencies": {
     "handlebars": "^4.0.10",

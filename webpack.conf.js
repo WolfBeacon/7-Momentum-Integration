@@ -20,13 +20,13 @@ module.exports = {
   },
   resolve: {
     modules: ['node_modules', 'src'],
-    //fallback: path.join(cwd, 'node_modules'),
+    // fallback: path.join(cwd, 'node_modules'),
     alias: {
       'handlebars': 'handlebars/dist/cjs/handlebars.js'
     }
   },
   resolveLoader: {
-    //fallback: path.join(cwd, 'node_modules'),
+    // fallback: path.join(cwd, 'node_modules'),
     alias: {
       'hbs': 'handlebars-loader'
     }
